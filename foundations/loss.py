@@ -9,6 +9,9 @@ class Solution:
         # y_pred: predicted probabilities
         # Hint: add a small epsilon (1e-7) to y_pred to avoid log(0)
         # return round(your_answer, 4)
+        eps = 1e-7
+        y_pred = np.clip(y_pred, eps, 1-eps)
+
         tmp = 0
         for i in range(len(y_true)):
             if y_true[i] != 1:
@@ -25,8 +28,10 @@ class Solution:
         # y_pred: predicted probabilities (shape: n_samples x n_classes)
         # Hint: add a small epsilon (1e-7) to y_pred to avoid log(0)
         # return round(your_answer, 4)
-
+        eps = 1e-7
+        y_pred = np.clip(y_pred, eps, 1-eps)
         tmp = 0
+        
         for i in range(len(y_true)):
             for j in range(len(y_true[i])):
                 if y_true[i][j] != 1:
